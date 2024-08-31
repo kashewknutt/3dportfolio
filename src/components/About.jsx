@@ -1,5 +1,5 @@
 import React from "react";
-import Tilt from "react-tilt";
+import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -40,18 +40,40 @@ const About = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <h2 className={styles.sectionHeadText}>
+          Overview<span className="relative">.
+            {/* Doodle and Label */}
+            <span className="absolute doodle-container">
+              <svg
+                className="doodle-arrow"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 10c4 8 12-8 20 0"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="doodle-text">
+                The period adds depth, doesn't it?
+              </span>
+            </span>
+          </span>
+        </h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        I'm an AI enthusiast with a keen curiosity for Tech, Music, Travel, Meeting new people, Helping everyone, Reading research papers and writing poetry and blogs.
+        I'm a good leader and a quick learner with experience in CUDA, Transformers, LLMs, NLP, GenAI, etc. I love to collaborate with clients to solve real-worl problems.
+        Hit me up if you need any guidance!
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

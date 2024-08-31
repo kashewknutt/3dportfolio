@@ -3,6 +3,8 @@ import {
     backend,
     creator,
     web,
+    ai,
+    django,
     javascript,
     typescript,
     html,
@@ -42,15 +44,15 @@ import {
   
   const services = [
     {
+      title: "AI Engineer",
+      icon: ai,
+    },
+    {
+      title: "Django Developer",
+      icon: django,
+    },
+    {
       title: "Web Developer",
-      icon: web,
-    },
-    {
-      title: "React Native Developer",
-      icon: mobile,
-    },
-    {
-      title: "Backend Developer",
       icon: backend,
     },
     {

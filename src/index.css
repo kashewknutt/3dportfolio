@@ -202,3 +202,22 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
+
+.doodle-container {
+  top: 3  0px; /* Adjust to position above the period */
+  left: 50px; /* Adjust to position to the right of the period */
+  display: flex;
+  align-items: center;
+}
+
+.doodle-arrow {
+  width: 100px;
+  height: 50px;
+  stroke: #333; /* Adjust color if needed */
+}
+
+.doodle-text {
+  margin-left: 8px; /* Spacing between arrow and text */
+  font-size: 12px;
+  color: #666; /* Adjust color if needed */
+}
