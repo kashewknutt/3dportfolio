@@ -16,7 +16,7 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText}`}>
-            Hoohaa, I'm <img src="https://readme-typing-svg.herokuapp.com?font=Rightous&size=60&duration=5500&pause=1000&color=af25f7&background=FFFFFF00&vCenter=true&random=false&width=1000&height=70&lines=Rajat+Disawal!;a+Generative+AI+Engineer" />
+            Hoohaa, I'm <img src="https://readme-typing-svg.herokuapp.com?font=Rightous&size=60&duration=5000&pause=800&color=af25f7&background=FFFFFF00&vCenter=true&random=false&width=1000&height=70&lines=Rajat+Disawal!;a+Generative+AI+Engineer" />
           </h1>
           <p className={`${styles.heroSubText} mt-2`}>
             Implementing AI research, Generative <br className='sm:block hidden' />
