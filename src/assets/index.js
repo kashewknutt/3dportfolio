@@ -5,6 +5,8 @@ import mobile from "./mobile.png";
 import web from "./web.png";
 import ai from "./ai.png";
 import django from "./django.png";
+import debug from "./debug.png";
+import writer from "./writer.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
@@ -40,6 +42,8 @@ export {
   web,
   ai,
   django,
+  debug,
+  writer,
   github,
   menu,
   close,

@@ -7,11 +7,11 @@ import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const ServiceCard = ({ index, title, icon }) => (
+const ServiceCard = ({ index, title, body, icon }) => (
   <Tilt className='xs:w-[250px] w-full'>
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
+      className='w-full beige-gradient p-[1px] rounded-[20px] shadow-card'
     >
       <div
         options={{
@@ -23,13 +23,16 @@ const ServiceCard = ({ index, title, icon }) => (
       >
         <img
           src={icon}
-          alt='web-development'
           className='w-16 h-16 object-contain'
         />
 
         <h3 className='text-white text-[20px] font-bold text-center'>
           {title}
         </h3>
+
+        <p className="text-white text-[10px] text-center">
+          {body}
+        </p>
       </div>
     </motion.div>
   </Tilt>

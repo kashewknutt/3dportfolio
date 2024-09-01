@@ -42,7 +42,15 @@
     rgba(60, 51, 80, 0) 100%
   );
 }
-
+.beige-gradient {
+  background: #d57f4d;
+  background: linear-gradient(-90deg, #d57f4d 0%, rgba(60, 51, 80, 0) 100%);
+  background: -webkit-linear-gradient(
+    -90deg,
+    #d57f4d 0%,
+    rgba(60, 51, 80, 0) 100%
+  );
+}
 .green-pink-gradient {
   background: "#00cea8";
   background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
@@ -204,8 +212,8 @@
 }
 
 .doodle-container {
-  top: 3  0px; /* Adjust to position above the period */
-  left: 50px; /* Adjust to position to the right of the period */
+  top: 30px; /* Adjust to position above the period */
+  left: 40px; /* Adjust to position to the right of the period */
   display: flex;
   align-items: center;
 }

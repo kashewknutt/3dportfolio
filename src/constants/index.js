@@ -5,6 +5,8 @@ import {
     web,
     ai,
     django,
+    debug,
+    writer,
     javascript,
     typescript,
     html,
@@ -45,19 +47,23 @@ import {
   const services = [
     {
       title: "AI Engineer",
+      body: "Model Tuning, RAG development, Research, Mathematics",
       icon: ai,
     },
     {
       title: "Django Developer",
+      body: "Full Stack Development, REST APIs, Django ORM",
       icon: django,
     },
     {
-      title: "Web Developer",
-      icon: backend,
+      title: "Code Debugger",
+      body: "Code Debugging, Code Optimization, Code Review",
+      icon: debug,
     },
     {
-      title: "Content Creator",
-      icon: creator,
+      title: "Content Writer",
+      body: "Technical Writing, Blogging, Copywriting, Proofreading",
+      icon: writer,
     },
   ];
   
