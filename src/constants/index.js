@@ -20,7 +20,9 @@ import {
     figma,
     docker,
     meta,
+    lawfulllamaslogo,
     starbucks,
+
     tesla,
     shopify,
     carrent,
@@ -124,22 +126,24 @@ import {
   
   const experiences = [
     {
-      title: "React.js Developer",
-      company_name: "Starbucks",
-      icon: starbucks,
-      iconBg: "#383E56",
-      date: "March 2020 - April 2021",
+      title: "GenAI Team Leader",
+      company_name: "Lawful Llamas",
+      icon: lawfulllamaslogo,
+      link: "https://github.com/LawfulLlamas",
+      iconBg: "#fff",
+      date: "August 2024 - September 2024",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Developed a custom Knowledge Graph for implementing a vector embedding.",
+        "Implemented QLoRA SFT method to train the Llama3.1 8B model using Unsloth.",
+        "Setup a RAG to work with a KB full of website scraped data.",
+        "Deployed the model via a Flask API in a NGROK tunnel on Google Collab.",
       ],
     },
     {
       title: "React Native Developer",
       company_name: "Tesla",
       icon: tesla,
+      link: "",
       iconBg: "#E6DEDD",
       date: "Jan 2021 - Feb 2022",
       points: [
@@ -153,6 +157,7 @@ import {
       title: "Web Developer",
       company_name: "Shopify",
       icon: shopify,
+      link: "",
       iconBg: "#383E56",
       date: "Jan 2022 - Jan 2023",
       points: [
@@ -166,6 +171,7 @@ import {
       title: "Full stack Developer",
       company_name: "Meta",
       icon: meta,
+      link: "",
       iconBg: "#E6DEDD",
       date: "Jan 2023 - Present",
       points: [
