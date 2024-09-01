@@ -12,12 +12,14 @@ import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 
+import { globe } from "../assets";
+
 const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
         background: "#c69163",
-        color: "#fff",
+        color: "#000",
       }}
       contentArrowStyle={{ borderRight: "7px solid  #c69163" }}
       date={experience.date}
@@ -34,12 +36,24 @@ const ExperienceCard = ({ experience }) => {
     >
       <div>
         <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <a 
+          href={experience.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:underline flex items-center"
+        >
+          <img 
+            src={globe}
+            alt="Company Website" 
+            className="w-6 h-6 ml-2 mr-1" 
+          />
         <p
           className='text-secondary text-[16px] font-semibold'
-          style={{ margin: 0 }}
+          style={{ margin: 1 }}
         >
           {experience.company_name}
         </p>
+        </a>
       </div>
 
       <ul className='mt-5 list-disc ml-5 space-y-2'>
