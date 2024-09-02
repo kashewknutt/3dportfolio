@@ -32,6 +32,8 @@ import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
 import lawfulllamaslogo from "./lawfulllamaslogo.png";
+import vesit from "./vesit.png";
+import firstcontact from "./firstcontact.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -66,6 +68,8 @@ export {
   meta,
   shopify,
   lawfulllamaslogo,
+  vesit,
+  firstcontact,
   starbucks,
   tesla,
   carrent,
