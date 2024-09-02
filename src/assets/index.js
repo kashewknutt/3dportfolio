@@ -25,6 +25,13 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import python from "./tech/python.png";
+import java from "./tech/java.png";
+import c from "./tech/c.png";
+import pytorch from "./tech/pytorch.png";
+import tensorflow from "./tech/tensorflow.png";
+import mysql from "./tech/mysql.png";
+import linux from "./tech/linux.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -76,4 +83,11 @@ export {
   jobit,
   tripguide,
   globe,
+  python,
+  java,
+  c,
+  pytorch,
+  tensorflow,
+  mysql,
+  linux,
 };
