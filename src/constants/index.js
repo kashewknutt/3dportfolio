@@ -39,6 +39,10 @@ import {
     tensorflow,
     mysql,
     linux,
+
+    dojhome,
+    vesitbot,
+    opencv,
   } from "../assets";
   
   export const navLinks = [
@@ -208,67 +212,60 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "DOJ Chatbot",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "A specially trained LLama3.1 model on prompt engineering techniques using DSPy and attempted-integration with RAG Knowledge Graph.",
       tags: [
         {
-          name: "react",
-          color: "blue-text-gradient",
+          name: "Pytorch",
         },
         {
-          name: "mongodb",
-          color: "green-text-gradient",
+          name: "DSPy",
         },
         {
-          name: "tailwind",
-          color: "pink-text-gradient",
+          name: "Unsloth",
+        },
+        {
+          name: "Flask",
         },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: dojhome,
+      source_code_link: "https://github.com/LawfulLlamas/judicial-chatbot",
     },
     {
-      name: "Job IT",
+      name: "VESIT GPT",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "A simple BERT model fine tuned on PDFs and text documents pertaining to the syllabus of the AI and DS branch of VESIT. My first official GenAI project.",
       tags: [
         {
-          name: "react",
-          color: "blue-text-gradient",
+          name: "Transformers",
         },
         {
-          name: "restapi",
-          color: "green-text-gradient",
+          name: "Flask",
         },
         {
-          name: "scss",
-          color: "pink-text-gradient",
+          name: "Tkinter",
         },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+      image: vesitbot,
+      source_code_link: "https://github.com/kashewknutt/VESITCourseGPT",
     },
     {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      name: "Indian Sign Language AI",
+      description:"An attempt to create a CNN on Indian hand signs to grasp letter understanding from live feeds using OpenCV. My introduction to Neural Networks",
       tags: [
         {
-          name: "nextjs",
-          color: "blue-text-gradient",
+          name: "CNN",
         },
         {
-          name: "supabase",
-          color: "green-text-gradient",
+          name: "OpenCV",
         },
         {
-          name: "css",
-          color: "pink-text-gradient",
+          name: "Object Tracking",
         },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: opencv,
+      source_code_link: "https://github.com/kashewknutt/PythonSignLanguageConverser",
     },
   ];
   

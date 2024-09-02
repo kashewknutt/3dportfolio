@@ -46,6 +46,10 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
+import dojhome from "./dojhome.png";
+import vesitbot from "./vesitbot.png";
+import opencv from "./opencv.png";
+
 export {
   logo,
   backend,
@@ -90,4 +94,7 @@ export {
   tensorflow,
   mysql,
   linux,
+  dojhome,
+  vesitbot,
+  opencv,
 };
