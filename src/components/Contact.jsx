@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
@@ -31,37 +30,39 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Rajat Disawal | Kashewknutt",
-          from_email: form.email,
-          to_email: "kashewknutt@gmail.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
+    // Making a POST request to your backend
+    fetch('https://portfolio-backend-4y7q3wrkv-rajat-disawals-projects.vercel.app/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      }),
+      mode: 'no-cors',
+    })
+      .then((response) => {
+        if (response.ok) {
           setLoading(false);
           alert("Letsgoo! I've got you, and I'll get back ASAP...");
-
+          
           setForm({
             name: "",
             email: "",
             message: "",
           });
-        },
-        (error) => {
+        } else {
           setLoading(false);
-          console.error(error);
-
           alert("Hey, there seems to be some issue as I didn't receive it.");
         }
-      );
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error(error);
+        alert("An error occurred while sending your message: "+ error);
+      });
   };
 
   return (
