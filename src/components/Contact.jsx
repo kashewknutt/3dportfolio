@@ -40,7 +40,7 @@ const Contact = () => {
     axios
       .post('https://api.brevo.com/v3/smtp/email', data, {
         headers: {
-          'api-key': process.env.REACT_APP_BREVO_API_KEY,
+        'api-key': process.env.REACT_APP_BREVO_API_KEY,
         'Content-Type': 'application/json',
         },
       })
