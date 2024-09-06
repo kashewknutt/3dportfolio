@@ -5,7 +5,6 @@ import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, Stars
 const App = () => {
 
   return (
-    console.log(import.meta.env.VITE_BREVO_API_KEY),
     <BrowserRouter>
     <div className="relative z-0 bg-primary">
       <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
