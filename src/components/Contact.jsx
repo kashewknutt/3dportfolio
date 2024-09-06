@@ -9,6 +9,7 @@ const Contact = () => {
   useEffect(() => {
     document.title = "Rajat | Talk to me";
   }, []);
+  
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -23,11 +24,11 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const data = {
+    const userMailData = {
       sender: { name: "Rajat Disawal", email: "port.kashewknutt@gmail.com" },
       to: [{ email: form.email }],
       subject: "Thanks for reaching out!",
@@ -36,31 +37,51 @@ const Contact = () => {
         <p>I received the following message from you:</p>
         <p>"${form.message}"</p>
         <p>I'll get back to you as soon as possible.</p>
-        <p>Best Regards,<br>Your Name</p>
+        <p>Best Regards,<br>Rajat Disawal</p>
       `,
     };
 
-    axios
-      .post('https://api.brevo.com/v3/smtp/email', data, {
+    const selfMailData = {
+      sender: { name: "Rajat Disawal", email: "port.kashewknutt@gmail.com" },
+      to: [{ email: "port.kashewknutt@gmail.com" }], // Send to yourself
+      subject: `New message from ${form.name}`,
+      htmlContent: `
+        <h1>New message from ${form.name},</h1>
+        <p>Email: ${form.email}</p>
+        <p>Message:</p>
+        <p>"${form.message}"</p>
+      `,
+    };
+
+    try {
+      // Send the email to the user
+      await axios.post('https://api.brevo.com/v3/smtp/email', userMailData, {
         headers: {
-        'api-key': import.meta.env.VITE_BREVO_API_KEY,
-        'Content-Type': 'application/json',
+          'api-key': import.meta.env.VITE_BREVO_API_KEY,
+          'Content-Type': 'application/json',
         },
-      })
-      .then((response) => {
-        setLoading(false);
-        alert("Email sent successfully!");
-        setForm({
-          name: "",
-          email: "",
-          message: "",
-        });
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.error(error);
-        alert("An error occurred while sending your message.");
       });
+
+      // Send the email to yourself
+      await axios.post('https://api.brevo.com/v3/smtp/email', selfMailData, {
+        headers: {
+          'api-key': import.meta.env.VITE_BREVO_API_KEY,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      setLoading(false);
+      alert("Emails sent successfully!");
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+      alert("An error occurred while sending your message.");
+    }
   };
 
   return (
