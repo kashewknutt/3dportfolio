@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import axios from 'axios';
 
 const Contact = () => {
   const formRef = useRef();
@@ -17,51 +17,47 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
-
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Making a POST request to your backend
-    fetch('https://portfolio-backend-4y7q3wrkv-rajat-disawals-projects.vercel.app/send-email', {
-      method: 'POST',
-      headers: {
+    const data = {
+      sender: { name: "Rajat Disawal", email: "port.kashewknutt@gmail.com" },
+      to: [{ email: form.email }],
+      subject: "Thanks for reaching out!",
+      htmlContent: `
+        <h1>Hello ${form.name},</h1>
+        <p>I received the following message from you:</p>
+        <p>"${form.message}"</p>
+        <p>I'll get back to you as soon as possible.</p>
+        <p>Best Regards,<br>Your Name</p>
+      `,
+    };
+
+    axios
+      .post('https://api.brevo.com/v3/smtp/email', data, {
+        headers: {
+          'api-key': process.env.REACT_APP_BREVO_API_KEY,
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      }),
-      mode: 'no-cors',
-    })
+        },
+      })
       .then((response) => {
-        if (response.ok) {
-          setLoading(false);
-          alert("Letsgoo! I've got you, and I'll get back ASAP...");
-          
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        } else {
-          setLoading(false);
-          alert("Hey, there seems to be some issue as I didn't receive it.");
-        }
+        setLoading(false);
+        alert("Email sent successfully!");
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
       })
       .catch((error) => {
         setLoading(false);
         console.error(error);
-        alert("An error occurred while sending your message: "+ error);
+        alert("An error occurred while sending your message.");
       });
   };
 
