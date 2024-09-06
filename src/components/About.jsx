@@ -75,7 +75,7 @@ const About = () => {
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
         I'm an AI enthusiast with a keen curiosity for Tech, Music, Travel, Meeting new people, Helping everyone, Reading research papers and writing poetry and blogs.
-        I'm a good leader and a quick learner with experience in CUDA, Transformers, LLMs, NLP, GenAI, etc. I love to collaborate with clients to solve real-worl problems.
+        I'm a good leader and a quick learner with experience in CUDA, Transformers, LLMs, NLP, GenAI, etc. I love to collaborate with clients to solve real-world problems.
         Hit me up if you need any guidance!
       </motion.p>
 
