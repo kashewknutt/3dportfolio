@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
@@ -6,6 +6,9 @@ import { slideIn } from "../utils/motion";
 import axios from 'axios';
 
 const Contact = () => {
+  useEffect(() => {
+    document.title = "Rajat | Talk to me";
+  }, []);
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -40,7 +43,7 @@ const Contact = () => {
     axios
       .post('https://api.brevo.com/v3/smtp/email', data, {
         headers: {
-        'api-key': process.env.REACT_APP_BREVO_API_KEY,
+        'api-key': import.meta.env.VITE_BREVO_API_KEY,
         'Content-Type': 'application/json',
         },
       })

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
@@ -16,6 +16,9 @@ const ProjectCard = ({
   image,
   source_code_link,
 }) => {
+  useEffect(() => {
+    document.title = "Rajat | My Experiences";
+  }, []);
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
