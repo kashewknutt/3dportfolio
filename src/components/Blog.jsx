@@ -38,13 +38,13 @@ const ServiceCard = ({ index, title, body, icon }) => (
   </Tilt>
 );
 
-const About = () => {
+const Blog = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>About Me</p>
+        <p className={styles.sectionSubText}>What I have to say</p>
         <h2 className={styles.sectionHeadText}>
-          Overview<span className="relative">.
+          Blogs<span className="relative">.
             {/* Doodle and Label */}
             <span className="absolute doodle-container">
               <svg
@@ -63,7 +63,7 @@ const About = () => {
                 />
               </svg>
               <span className="doodle-text">
-                The period adds depth, doesn't it?
+                My opinions are unique and worth something, I feel.
               </span>
             </span>
           </span>
@@ -74,9 +74,10 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm an AI enthusiast with a keen curiosity for Tech, Music, Travel, Meeting new people, Helping everyone, Reading research papers and writing poetry and blogs.
-        I'm a good leader and a quick learner with experience in CUDA, Transformers, LLMs, NLP, GenAI, etc. I love to collaborate with clients to solve real-world problems.
-        Hit me up if you need any guidance!
+        There is a lot of intelligence in the world, no doubt. I'm not even some super successful rich guy who's
+        story will inspire thousands. I'm a regular dude who is morphed somehow between extrovertism and autism.
+        I've got a perky eyesight and often a way to look at things that others around me don't. You might find my
+        blogs interesting on reading and if you do, do share them and let me know your thoughts below. Happy reading!!
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>
@@ -88,4 +89,4 @@ const About = () => {
   );
 };
 
-export default SectionWrapper(About, "about");
+export default SectionWrapper(Blog, "blog");
