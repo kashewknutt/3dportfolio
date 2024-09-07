@@ -10,7 +10,7 @@ const Admin = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const res = await axios.get('https://portfolio-backend-br19ll5ii-rajat-disawals-projects.vercel.app/blogs');
+      const res = await axios.get('/api/blogs');
       setBlogs(res.data);
     };
     fetchBlogs();
@@ -18,7 +18,7 @@ const Admin = () => {
 
   const handleCreate = async () => {
     try {
-      const res = await axios.post('https://portfolio-backend-br19ll5ii-rajat-disawals-projects.vercel.app/blogs', { title, body }, {
+      const res = await axios.post('/api/blogs', { title, body }, {
         headers: { 'Authorization': token }
       });
       setBlogs([...blogs, res.data]);
@@ -29,7 +29,7 @@ const Admin = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://portfolio-backend-br19ll5ii-rajat-disawals-projects.vercel.app/blogs/${id}`, {
+      await axios.delete(`/api/blogs/${id}`, {
         headers: { 'Authorization': token }
       });
       setBlogs(blogs.filter(blog => blog._id !== id));
