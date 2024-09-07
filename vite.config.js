@@ -10,6 +10,7 @@ export default defineConfig({
         target: 'https://portfolio-backend-fi2pkmiff-rajat-disawals-projects.vercel.app/',
         changeOrigin: true,
         secure: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
