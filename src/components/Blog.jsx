@@ -79,12 +79,6 @@ const Blog = () => {
         I've got a perky eyesight and often a way to look at things that others around me don't. You might find my
         blogs interesting on reading and if you do, do share them and let me know your thoughts below. Happy reading!!
       </motion.p>
-
-      <div className='mt-20 flex flex-wrap gap-10'>
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
-        ))}
-      </div>
     </>
   );
 };

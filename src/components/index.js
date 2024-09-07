@@ -8,6 +8,10 @@ import Works from './Works';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import Blog from './Blog';
+import Login from './Login';
+import Admin from './Admin';
+import PrivateRoute from './PrivateRoute';
+import SecretButton from './SecretButton';
 
 export {
   Hero,
@@ -19,6 +23,10 @@ export {
   Blog,
   Feedbacks,
   Contact,
+  Login,
+  Admin,
+  PrivateRoute,
+  SecretButton,
   EarthCanvas, 
   BallCanvas, 
   ComputersCanvas, 
