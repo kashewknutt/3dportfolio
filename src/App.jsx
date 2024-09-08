@@ -18,8 +18,6 @@ const App = () => {
           <Contact />
         </div>
 
-        {/* Secret Button */}
-        <SecretButton />
       </div>
       <Routes>
         <Route path="/login" element={<Login />} />
