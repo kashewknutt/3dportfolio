@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://portfolio-backend-jhp99dlxt-rajat-disawals-projects.vercel.app/',
+        target: 'https://portfolio-backend-lpmekg2ul-rajat-disawals-projects.vercel.app/',
         changeOrigin: true,
         secure: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
