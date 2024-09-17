@@ -13,7 +13,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        '/api/login', // This will be proxied through Vite config
+        '/api/logni', // This will be proxied through Vite config
         { username, password },
         {
           withCredentials: true, // Ensures credentials (cookies, headers) are sent
