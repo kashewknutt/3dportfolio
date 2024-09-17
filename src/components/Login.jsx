@@ -13,7 +13,7 @@ const Login = () => {
     
     try {
       const res = await axios.post(
-        'https://portfolio-backend-cq63io1iv-rajat-disawals-projects.vercel.app/login', 
+        'https://portfolio-backend-adykjihwz-rajat-disawals-projects.vercel.app/login', 
         { username, password }, 
         { withCredentials: true }
       );
@@ -24,7 +24,7 @@ const Login = () => {
       // Redirect to admin page after successful login
       navigate('/admin');
     } catch (error) {
-      alert('Invalid credentials');
+      alert(error);
     }
   };
 
