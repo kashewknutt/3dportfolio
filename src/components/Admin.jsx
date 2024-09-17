@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://portfolio-backend-frciplpex-rajat-disawals-projects.vercel.app';
+const API_BASE_URL = 'https://portfolio-backend-eym4gryz1-rajat-disawals-projects.vercel.app';
 
 const Admin = () => {
   const [blogs, setBlogs] = useState([]);
