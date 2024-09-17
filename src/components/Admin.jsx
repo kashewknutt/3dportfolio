@@ -1,57 +1,61 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://portfolio-backend-adykjihwz-rajat-disawals-projects.vercel.app';
+const API_BASE_URL = 'https://portfolio-backend-1cpl9rhlu-rajat-disawals-projects.vercel.app';
 
 const Admin = () => {
   const [blogs, setBlogs] = useState([]);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  const [error, setError] = useState(null);
 
   const token = localStorage.getItem('token');
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/blogs`);
+        const res = await axios.get(`${API_BASE_URL}/blogs`, {
+          headers: { 'Authorization': `Bearer ${token}` } // Include token in the header
+        });
         setBlogs(res.data);
       } catch (error) {
+        setError('Error fetching blogs');
         console.error('Error fetching blogs:', error);
-        alert('Error fetching blogs');
       }
     };
     fetchBlogs();
-  }, []);
+  }, [token]);
 
   const handleCreate = async () => {
     try {
       const res = await axios.post(`${API_BASE_URL}/blogs`, { title, body }, {
-        headers: { 'Authorization': token }
+        headers: { 'Authorization': `Bearer ${token}` } // Include token in the header
       });
       setBlogs([...blogs, res.data]);
-      setTitle('');
-      setBody('');
+      setTitle(''); // Clear the title input
+      setBody(''); // Clear the body input
     } catch (error) {
+      setError('Error creating blog');
       console.error('Error creating blog:', error);
-      alert('Error creating blog');
     }
   };
 
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${API_BASE_URL}/blogs/${id}`, {
-        headers: { 'Authorization': token }
+        headers: { 'Authorization': `Bearer ${token}` } // Include token in the header
       });
-      setBlogs(blogs.filter(blog => blog._id !== id));
+      setBlogs(blogs.filter(blog => blog._id !== id)); // Remove deleted blog from the list
     } catch (error) {
+      setError('Error deleting blog');
       console.error('Error deleting blog:', error);
-      alert('Error deleting blog');
     }
   };
 
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Admin Dashboard</h2>
+      {error && <p className="text-red-500">{error}</p>} {/* Display error messages */}
       <div className="mb-4">
         <input 
           type="text" 

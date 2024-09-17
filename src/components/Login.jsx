@@ -5,43 +5,50 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Modify handleLogin to receive the event
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent form from reloading the page
-    
+    e.preventDefault(); // Prevent page reload
+
     try {
       const res = await axios.post(
-        'https://portfolio-backend-adykjihwz-rajat-disawals-projects.vercel.app/login', 
-        { username, password }, 
-        { withCredentials: true }
+        '/api/login', // This will be proxied through Vite config
+        { username, password },
+        {
+          withCredentials: true, // Ensures credentials (cookies, headers) are sent
+        }
       );
-      
-      // Save token in localStorage
+
+      // Store JWT token in localStorage
       localStorage.setItem('token', res.data.token);
-      
-      // Redirect to admin page after successful login
+
+      // Redirect to admin page on successful login
       navigate('/admin');
     } catch (error) {
-      alert(error);
+      // Set error message if login fails
+      setError('Invalid credentials, please try again.');
+      console.error('Login failed:', error);
     }
   };
 
   return (
     <form onSubmit={handleLogin}>
       <h2>Login</h2>
-      <input 
-        type="text" 
-        placeholder="Username" 
-        value={username} 
-        onChange={(e) => setUsername(e.target.value)} 
+      {error && <p style={{ color: 'red' }}>{error}</p>} {/* Show error if present */}
+      <input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        required
       />
-      <input 
-        type="password" 
-        placeholder="Password" 
-        value={password} 
-        onChange={(e) => setPassword(e.target.value)} 
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
       />
       <button type="submit">Login</button>
     </form>
