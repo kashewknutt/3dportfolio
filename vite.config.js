@@ -6,12 +6,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://portfolio-backend-fsxfzezjl-rajat-disawals-projects.vercel.app',
+        target: 'https://66ea69d7a946910008dac065--willowy-platypus-5cb294.netlify.app',
         changeOrigin: true,
         secure: false,
         headers: {
           'Access-Control-Allow-Origin': '*',  // Example header for CORS
-          'Access-Control-Allow-Methods': 'POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
           'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         },
       },
