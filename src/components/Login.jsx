@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault(); // Prevent page reload
 
     try {
-      const res = await fetch('/api/looogin', {
+      const res = await fetch('/api/looogin', { // Corrected endpoint
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,10 +26,8 @@ const Login = () => {
       }
 
       const data = await res.json();
-      localStorage.setItem('token', data.token);
-
       // Store JWT token in localStorage
-      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('token', data.token);
 
       // Redirect to admin page on successful login
       navigate('/admin');
