@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://portfolio-backend-klewsp12b-rajat-disawals-projects.vercel.app',
+        target: 'https://portfolio-backend-hjnj2en3x-rajat-disawals-projects.vercel.app',
         changeOrigin: true,
         secure: false,
         headers: {
