@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://66ea69d7a946910008dac065--willowy-platypus-5cb294.netlify.app',
+        target: 'https://portfolio-backend-klewsp12b-rajat-disawals-projects.vercel.app',
         changeOrigin: true,
         secure: false,
         headers: {
