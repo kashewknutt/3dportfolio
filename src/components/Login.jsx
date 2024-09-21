@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault(); // Prevent page reload
 
     try {
-      const res = await fetch('/api/login', {
+      const res = await fetch('/api/looogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
