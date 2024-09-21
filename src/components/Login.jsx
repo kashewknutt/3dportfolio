@@ -12,13 +12,21 @@ const Login = () => {
     e.preventDefault(); // Prevent page reload
 
     try {
-      const res = await axios.post(
-        '/api/login', // This will be proxied through Vite config
-        { username:username, password:password },
-        {
-          withCredentials: true, // Ensures credentials (cookies, headers) are sent
-        }
-      );
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+        credentials: 'include', // Ensures credentials (cookies, headers) are sent
+      });
+
+      if (!res.ok) {
+        throw new Error('Login failed');
+      }
+
+      const data = await res.json();
+      localStorage.setItem('token', data.token);
 
       // Store JWT token in localStorage
       localStorage.setItem('token', res.data.token);
