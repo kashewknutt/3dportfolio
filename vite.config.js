@@ -5,11 +5,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': {
-        target: 'https://portfolio-backend-kojfdy3zl-rajat-disawals-projects.vercel.app',
+      '/': {
+        target: 'https://portfolio-backend-q68gwg655-rajat-disawals-projects.vercel.app',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ''), // Adjust the path correctly
+        // rewrite: (path) => path.replace(/^\/api/, ''), // Adjust the path correctly
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
