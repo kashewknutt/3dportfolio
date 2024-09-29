@@ -12,9 +12,11 @@ import Login from './Login';
 import Admin from './Admin';
 import PrivateRoute from './PrivateRoute';
 import SecretButton from './SecretButton';
+import ServiceHero from './ServiceHero';
 
 export {
   Hero,
+  ServiceHero,
   Navbar,
   About,
   Tech,

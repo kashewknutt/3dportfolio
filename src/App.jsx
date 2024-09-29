@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, Blog, Login, Admin, PrivateRoute, SecretButton } from "./components";
+import { About, Contact, Experience, Feedbacks, Hero, ServiceHero, Navbar, Tech, Works, Blog, Login, Admin, PrivateRoute, SecretButton } from "./components";
 import ServicesPage from "../src/pages/ServicePage.jsx";
 
 const App = () => {
@@ -32,7 +32,11 @@ const App = () => {
           path="/services"
           element={
             <div className="relative z-0 bg-primary">
-              <Navbar isServicePage={true} />
+              <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+                <Navbar />
+                <ServiceHero />
+              </div>
+
               <ServicesPage />
             </div>
           }
