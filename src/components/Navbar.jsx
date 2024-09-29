@@ -5,7 +5,7 @@ import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 
-const Navbar = () => {
+const Navbar = ({ isServicePage }) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -27,9 +27,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 ${
         scrolled ? "bg-primary" : "bg-transparent"
       }`}
     >
@@ -58,7 +56,22 @@ const Navbar = () => {
               } hover:text-[#be5c0b] text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+              {nav.title === "Services" ? (
+                <a href="/services" target="_blank" rel="noopener noreferrer">
+                  {nav.title}
+                </a>
+              ) : (
+                <a
+                  href={isServicePage ? `/#${nav.id}` : `#${nav.id}`}
+                  onClick={() => {
+                    if (isServicePage) {
+                      window.location.href = `/#${nav.id}`;
+                    }
+                  }}
+                >
+                  {nav.title}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -88,7 +101,22 @@ const Navbar = () => {
                     setActive(nav.title);
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  {nav.title === "Services" ? (
+                    <a href="/services" target="_blank" rel="noopener noreferrer">
+                      {nav.title}
+                    </a>
+                  ) : (
+                    <a
+                      href={isServicePage ? `/#${nav.id}` : `#${nav.id}`}
+                      onClick={() => {
+                        if (isServicePage) {
+                          window.location.href = `/#${nav.id}`;
+                        }
+                      }}
+                    >
+                      {nav.title}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

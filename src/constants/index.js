@@ -58,6 +58,10 @@ import {
       id: "contact",
       title: "Contact",
     },
+    {
+      id: "services",
+      title: "Services",  
+    }
   ];
   
   const services = [
@@ -80,6 +84,45 @@ import {
       title: "Content Writer",
       body: "Technical Writing, Blogging, Copywriting, Proofreading",
       icon: writer,
+    },
+  ];
+
+  export const servicesData = [
+    {
+      id: 1,
+      name: "Creating Custom AI Pipelines",
+      description:
+        "End-to-end development of custom AI pipelines tailored to your specific needs, including data preprocessing, model training, and deployment.",
+      estimatedTime: "1-2 weeks",
+      price: "INR 10000",
+      expertiseLevel: "Expert",
+      toolsUsed: ["Python", "PyTorch", "Tensorflow", "XGBoost"],
+      image: "path_to_image_for_AI_pipeline", // Placeholder; replace with actual path
+      complexity: "High",
+    },
+    {
+      id: 2,
+      name: "Implementing RAG-based Chatbots",
+      description:
+        "Develop and integrate Retrieval-Augmented Generation (RAG) based chatbots capable of handling complex user queries with contextual understanding.",
+      estimatedTime: "2-4 weeks",
+      price: "INR 15000",
+      expertiseLevel: "Advanced",
+      toolsUsed: ["DSPy", "Transformers", "Autoencoders", "Seq2Seq"],
+      image: "path_to_image_for_RAG_chatbot", // Placeholder; replace with actual path
+      complexity: "Very High",
+    },
+    {
+      id: 3,
+      name: "Developing Custom Django Backend",
+      description:
+        "Build scalable and secure Django backend solutions with optimized APIs, integrating third-party services, and ensuring seamless database management.",
+      estimatedTime: "1-2 weeks",
+      price: "INR 12000",
+      expertiseLevel: "Intermediate",
+      toolsUsed: ["Django", "MongoDB", "SQLite"],
+      image: "path_to_image_for_django_backend", // Placeholder; replace with actual path
+      complexity: "Medium",
     },
   ];
   
