@@ -8,7 +8,7 @@ import { Tilt } from "react-tilt"; // Import Tilt for service cards
 import { motion } from "framer-motion"; // Import motion for animations
 import { fadeIn } from "../utils/motion"; // Import fadeIn for animations
 
-const ServiceCard = ({ index, icon, name, description, estimatedTime, oldPrice, price, expertiseLevel }) => (
+const ServiceCard = ({ index, icon, name, description, estimatedTime, oldPrice, price, expertiseLevel, toolsUsed }) => (
   <Tilt className='w-full' style={{ height: '80vh' }}>
     <motion.div
       variants={fadeIn("right", "spring", index * 0.15, 0.25)}
@@ -27,7 +27,12 @@ const ServiceCard = ({ index, icon, name, description, estimatedTime, oldPrice, 
         <p className="text-white text-[18px] text-left">
           <strong>Price:</strong> <span style={{ textDecoration: 'line-through', color: 'red' }}>{oldPrice}</span> {price}
         </p>
-        <p className="text-white text-[18px] text-left"><strong>Expertise Level:</strong> {expertiseLevel}</p>
+        <p className="text-white text-[18px] text-left"><strong>Tools Used:</strong></p>
+        <ul className="text-white text-[18px] text-left">
+          {toolsUsed.map((tool, index) => (
+            <li key={index}>• {tool}</li>
+          ))}
+        </ul>
         <button 
           className="mt-4 bg-[#3a91a3] text-white py-2 px-4 rounded" 
           onClick={() => window.location.href='/#contact'} // Redirect to contact page
