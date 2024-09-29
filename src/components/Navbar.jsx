@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -9,6 +9,8 @@ const Navbar = ({ isServicePage }) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +26,22 @@ const Navbar = ({ isServicePage }) => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (nav) => {
+    setActive(nav.title);
+    setToggle(false);
+
+    if (nav.title === "Services") {
+      navigate("/services");
+    } else {
+      // Navigate to the home page and add hash to the URL
+      if (isServicePage) {
+        navigate(`/#${nav.id}`);
+      } else {
+        window.location.hash = `#${nav.id}`;
+      }
+    }
+  };
 
   return (
     <nav
@@ -54,23 +72,12 @@ const Navbar = ({ isServicePage }) => {
               className={`${
                 active === nav.title ? "text-black" : "text-secondary"
               } hover:text-[#be5c0b] text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+              onClick={() => handleNavClick(nav)}
             >
               {nav.title === "Services" ? (
-                <a href="/services" target="_blank" rel="noopener noreferrer">
-                  {nav.title}
-                </a>
+                <a href="/services">{nav.title}</a>
               ) : (
-                <a
-                  href={isServicePage ? `/#${nav.id}` : `#${nav.id}`}
-                  onClick={() => {
-                    if (isServicePage) {
-                      window.location.href = `/#${nav.id}`;
-                    }
-                  }}
-                >
-                  {nav.title}
-                </a>
+                <a href={`/#${nav.id}`}>{nav.title}</a>
               )}
             </li>
           ))}
@@ -96,26 +103,12 @@ const Navbar = ({ isServicePage }) => {
                   className={`font-poppins font-medium cursor-pointer text-[16px] ${
                     active === nav.title ? "text-black" : "text-secondary"
                   }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
+                  onClick={() => handleNavClick(nav)}
                 >
                   {nav.title === "Services" ? (
-                    <a href="/services" target="_blank" rel="noopener noreferrer">
-                      {nav.title}
-                    </a>
+                    <a href="/services">{nav.title}</a>
                   ) : (
-                    <a
-                      href={isServicePage ? `/#${nav.id}` : `#${nav.id}`}
-                      onClick={() => {
-                        if (isServicePage) {
-                          window.location.href = `/#${nav.id}`;
-                        }
-                      }}
-                    >
-                      {nav.title}
-                    </a>
+                    <a href={`/#${nav.id}`}>{nav.title}</a>
                   )}
                 </li>
               ))}

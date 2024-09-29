@@ -9,33 +9,42 @@ import { motion } from "framer-motion"; // Import motion for animations
 import { fadeIn } from "../utils/motion"; // Import fadeIn for animations
 
 const ServiceCard = ({ index, icon, name, description, estimatedTime, oldPrice, price, expertiseLevel, toolsUsed }) => (
-  <Tilt className='w-full' style={{ height: '80vh' }}>
+  <Tilt
+    className='w-full'
+    options={{ 
+      max: 5,           // Reduced max tilt to 5 degrees for a subtle effect
+      scale: 1.02,      // Very slight scale increase on hover
+      speed: 300        // Slower speed for a more gentle effect
+    }}
+    style={{ height: '80vh' }}
+  >
     <motion.div
       variants={fadeIn("right", "spring", index * 0.15, 0.25)}
       className='w-full beige-gradient p-[1px] rounded-[20px] shadow-card'
     >
       <div
-        className='bg-tertiary rounded-[20px] py-5 px-12 h-full flex justify-evenly items-center flex-col'
+        className='bg-tertiary rounded-[20px] py-5 px-8 h-full flex justify-evenly items-center flex-col'
       >
         <img
           src={icon}
+          alt={name}
           className='w-16 h-16 object-contain'
         />
-        <h3 className='text-white text-[25px] font-bold text-center'>{name}</h3>
-        <p className="text-white text-[18px] text-center">{description}</p>
-        <p className="text-white text-[18px] text-left"><strong>Estimated Time:</strong> {estimatedTime}</p>
-        <p className="text-white text-[18px] text-left">
+        <h3 className='text-white text-[22px] font-bold text-center'>{name}</h3>
+        <p className="text-white text-[16px] text-center">{description}</p>
+        <p className="text-white text-[16px] text-left"><strong>Estimated Time:</strong> {estimatedTime}</p>
+        <p className="text-white text-[16px] text-left">
           <strong>Price:</strong> <span style={{ textDecoration: 'line-through', color: 'red' }}>{oldPrice}</span> {price}
         </p>
-        <p className="text-white text-[18px] text-left"><strong>Tools Used:</strong></p>
-        <ul className="text-white text-[18px] text-left">
+        <p className="text-white text-[16px] text-left"><strong>Tools Used:</strong></p>
+        <ul className="text-white text-[16px] text-left list-disc pl-5">
           {toolsUsed.map((tool, index) => (
-            <li key={index}>• {tool}</li>
+            <li key={index}>{tool}</li>
           ))}
         </ul>
         <button 
-          className="mt-4 bg-[#3a91a3] text-white py-2 px-4 rounded" 
-          onClick={() => window.location.href='/#contact'} // Redirect to contact page
+          className="mt-4 bg-[#3a91a3] text-white py-2 px-4 rounded hover:bg-[#2c7a8a] transition-colors duration-300" 
+          onClick={() => window.location.href='/#contact'}
         >
           Contact Us
         </button>
@@ -43,6 +52,7 @@ const ServiceCard = ({ index, icon, name, description, estimatedTime, oldPrice, 
     </motion.div>
   </Tilt>
 );
+
 
 const Services = () => {
   useEffect(() => {
